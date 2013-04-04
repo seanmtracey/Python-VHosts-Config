@@ -53,4 +53,14 @@ with open(hostsFilePath, "a") as hostsFile:
 	hostsFile.write("\n" + serverIP + " " + serverAlias)
 	
 print("\n=====\nEntry added to hosts file\n=====\n")
-print("=====\nYou should probably restart your Apache server\n=====")
+
+def shouldRestart():
+	answer = raw_input('Would you like to restart Apache? yes/no\n')
+	
+	if answer == "Yes" or answer == "Y" or answer == "yes" or answer == "y":
+		print("\n=====\nRestarting Apache\n=====")
+		os.system('sudo apachectl restart')
+	elif answer == "No" or answer =="N" or answer == "no" or answer == "n":
+		print("\n=====\nYou should probably restart your Apache server\n=====")
+	
+shouldRestart()
