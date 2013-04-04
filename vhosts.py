@@ -62,5 +62,8 @@ def shouldRestart():
 		os.system('sudo apachectl restart')
 	elif answer == "No" or answer =="N" or answer == "no" or answer == "n":
 		print("\n=====\nYou should probably restart your Apache server\n=====")
-	
+	else :
+		print("\n=====\nThat was a wierd response...\n=====\n")
+		shouldRestart()
+
 shouldRestart()
